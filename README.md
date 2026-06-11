@@ -81,5 +81,4 @@ streamlit run app.py
 ```
 
 ---
-on** — prompt design that restricts the LLM to retrieved context only
-- **Retrieval evaluation** — source documents exposed in UI for answer traceability
+
