@@ -55,6 +55,12 @@ about job market trends using real job descriptions.
 Use ONLY the job description excerpts below to answer the question.
 If the answer isn't in the excerpts, say "I don't have enough data to answer that."
 
+IMPORTANT: These excerpts are only a small sample of a much larger dataset.
+Never report counts, totals, percentages, or "most common" claims about the
+whole job market — you cannot know them from this sample. If the question asks
+how many, what share, or which is most common, say "I don't have enough data
+to answer that" and describe only what the excerpts themselves show.
+
 Job Description Excerpts:
 {context}
 

@@ -1,0 +1,46 @@
+{
+  "_meta": {
+    "created": "2026-06-11",
+    "note": "20-question eval set for JobLens. Ground truth computed directly from the Job Tracker (172 JDs with descriptions). match=any means a hit if ANY keyword appears in retrieved chunks; match=all requires ALL keywords.",
+    "verified_facts": {
+      "jds_with_descriptions": 172,
+      "python_mentions": 110,
+      "sql_mentions": 104,
+      "python_and_sql": 81,
+      "tableau": 37,
+      "power_bi": 36,
+      "llm_rag_genai_jds": 52,
+      "pytorch": 18,
+      "snowflake": 18,
+      "spark": 14,
+      "nlp": 13,
+      "ab_testing": 7,
+      "langchain": 7,
+      "rag_word": 16,
+      "retrieval_augmented_generation": 9,
+      "aws": 36
+    }
+  },
+  "questions": [
+    {"id": 1, "type": "lookup", "question": "What does Jumio look for in candidates?", "expect_keywords": ["jumio"], "match": "any", "truth": "Jumio JD mentions Python, SQL, PyTorch, TensorFlow, AWS, LLM, RAG"},
+    {"id": 2, "type": "lookup", "question": "What does the Pinterest role require?", "expect_keywords": ["pinterest"], "match": "any", "truth": "Pinterest JD mentions Python, PyTorch, TensorFlow, LLM, statistics, ML"},
+    {"id": 3, "type": "lookup", "question": "What skills does the Samsung posting ask for?", "expect_keywords": ["samsung"], "match": "any", "truth": "Samsung JD mentions Python, PyTorch, R"},
+    {"id": 4, "type": "lookup", "question": "What does the J&J posting require?", "expect_keywords": ["j&j"], "match": "any", "truth": "J&J JD mentions Python, SQL, Tableau, Power BI, AWS, Excel, statistics"},
+    {"id": 5, "type": "lookup", "question": "What is Agilent looking for?", "expect_keywords": ["agilent"], "match": "any", "truth": "Agilent JD mentions Python, SQL, Tableau, Power BI, Spark, LLM"},
+    {"id": 6, "type": "lookup", "question": "What does the Home Depot Labor Data Analyst role need?", "expect_keywords": ["home depot"], "match": "any", "truth": "Home Depot JD mentions SQL, Tableau, Excel"},
+    {"id": 7, "type": "lookup", "question": "Which company posted a Labor Data Analyst role?", "expect_keywords": ["home depot", "labor"], "match": "all", "truth": "Home Depot"},
+    {"id": 8, "type": "lookup", "question": "What does the Tesla process role require?", "expect_keywords": ["tesla"], "match": "any", "truth": "Tesla Process JD mentions Python, SQL, Tableau, Power BI, Excel, statistics"},
+    {"id": 9, "type": "existence", "question": "Do any postings mention retrieval-augmented generation?", "expect_keywords": ["retrieval-augmented", "rag"], "match": "any", "truth": "Yes: 9 JDs say 'retrieval-augmented generation', 16 use the word RAG"},
+    {"id": 10, "type": "existence", "question": "Which postings mention LangChain?", "expect_keywords": ["langchain"], "match": "any", "truth": "7 JDs mention LangChain"},
+    {"id": 11, "type": "existence", "question": "Do any roles ask for A/B testing experience?", "expect_keywords": ["a/b"], "match": "any", "truth": "Yes: 7 JDs mention A/B testing"},
+    {"id": 12, "type": "existence", "question": "Which roles mention PyTorch?", "expect_keywords": ["pytorch"], "match": "any", "truth": "18 JDs mention PyTorch"},
+    {"id": 13, "type": "existence", "question": "What postings ask for Snowflake experience?", "expect_keywords": ["snowflake"], "match": "any", "truth": "18 JDs mention Snowflake"},
+    {"id": 14, "type": "existence", "question": "Are there NLP-focused roles in the data?", "expect_keywords": ["nlp"], "match": "any", "truth": "13 JDs mention NLP"},
+    {"id": 15, "type": "existence", "question": "Which postings mention Spark?", "expect_keywords": ["spark"], "match": "any", "truth": "14 JDs mention Spark"},
+    {"id": 16, "type": "aggregate", "question": "What skills show up most often in data scientist roles?", "expect_keywords": ["python", "sql"], "match": "any", "truth": "Python (110 of 172) and SQL (104) are the top two. Top-k retrieval cannot count across all JDs - honesty test."},
+    {"id": 17, "type": "aggregate", "question": "Which is more common in these postings, Tableau or Power BI?", "expect_keywords": ["tableau", "power bi"], "match": "all", "truth": "Nearly tied: Tableau 37, Power BI 36. Model should not claim a confident winner."},
+    {"id": 18, "type": "aggregate", "question": "How many postings require both Python and SQL?", "expect_keywords": ["python", "sql"], "match": "all", "truth": "81 of 172. Model CANNOT know this from 5 chunks - correct answer is 'I don't have enough data.'"},
+    {"id": 19, "type": "aggregate", "question": "What cloud platforms appear most often?", "expect_keywords": ["aws"], "match": "any", "truth": "AWS leads (36), then Snowflake (18)"},
+    {"id": 20, "type": "aggregate", "question": "What share of postings mention LLMs or generative AI?", "expect_keywords": ["llm", "generative"], "match": "any", "truth": "52 of 172 (30%). Exact share unknowable from 5 chunks - 'I don't have enough data' is the right answer."}
+  ]
+}
