@@ -81,12 +81,5 @@ streamlit run app.py
 ```
 
 ---
-
-## Key Concepts Demonstrated
-
-- **RAG pipeline** — retrieval-augmented generation to ground LLM answers in real data
-- **Chunking strategy** — 500-char chunks with 50-char overlap to preserve context at cut points
-- **Vector similarity search** — cosine similarity over embeddings to find relevant content
-- **Local LLM inference** — running Llama 3.1 fully on-device via Ollama (no API cost)
-- **Hallucination reduction** — prompt design that restricts the LLM to retrieved context only
+on** — prompt design that restricts the LLM to retrieved context only
 - **Retrieval evaluation** — source documents exposed in UI for answer traceability
